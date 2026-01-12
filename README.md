@@ -1,6 +1,6 @@
 # nautilus-localsend
 
-Integration for send files with LocalSend from Nautilus
+Integration for send files with LocalSend from context menu Nautilus
 
 Інтеграція для надсилання файлів за допомогою LocalSend із контекстного меню у Nautilus
 
