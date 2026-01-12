@@ -50,7 +50,7 @@ class LocalSendExtension(GObject.GObject, Nautilus.MenuProvider):
 
         count = len(files)
         if count > 1:
-            label = f"Надіслати {count} файлів через LocalSend"
+            label = f"📤 Надіслати {count} файлів"
         else:
             label = "Надіслати через LocalSend"
         
@@ -66,7 +66,7 @@ class LocalSendExtension(GObject.GObject, Nautilus.MenuProvider):
         file = args[-1]
         item = Nautilus.MenuItem(
             name="LocalSend::SendCurrentDir",
-            label="Надіслати все з цієї теки через LocalSend",
+            label="📤 Надіслати вміст цієї теки",
             tip="Надіслати поточну директорію через LocalSend"
         )
         item.connect("activate", self._send_to_localsend, [file])
