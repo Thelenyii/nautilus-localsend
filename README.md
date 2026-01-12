@@ -16,4 +16,5 @@ sudo pacman -S python-nautilus
 git clone https://github.com/Thelenyii/nautilus-localsend.git
 cd nautilus-localsend
 mv nautilus-localsend.py ~/.local/share/nautilus-python/extensions/
+nautilus -q
 ```
