@@ -24,35 +24,39 @@ class LocalSendExtension(GObject.GObject, Nautilus.MenuProvider):
             if path.startswith('/'):
                 file_paths.append(path)
 
-        # Відредагуйте команду для запуску LocalSend, якщо у вас вона відрізняється
-        command = [
+        commands = [
             ['localsend', *file_paths],
+            ['flatpak', 'run', 'org.localsend.localsend_app', *file_paths]
         ]
 
         success = False
-        for cmd in command:
+        for cmd in commands:
             try:
-                # Перевіряємо, чи встановлено LocalSend
                 subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                 success = True
-                break # Якщо запустилося, зупиняємо цикл
+                break 
             except FileNotFoundError:
                 continue
             except Exception:
                 continue
 
         if not success:
-            # Виводимо сповіщення в системі, якщо команда не спрацювала
             subprocess.run(['notify-send', 'Помилка LocalSend', 'Не вдалося знайти встановлений LocalSend'])
 
     def get_file_items(self, *args):
         files = args[-1]
         if not files:
-            return
+            return        
+
+        count = len(files)
+        if count > 1:
+            label = f"Надіслати {count} файлів через LocalSend"
+        else:
+            label = "Надіслати через LocalSend"
         
         item = Nautilus.MenuItem(
             name="LocalSend::SendFiles",
-            label="Надіслати через LocalSend",
+            label=label,
             tip="Надіслати вибрані об'єкти через LocalSend"
         )
         item.connect("activate", self._send_to_localsend, files)
@@ -62,7 +66,7 @@ class LocalSendExtension(GObject.GObject, Nautilus.MenuProvider):
         file = args[-1]
         item = Nautilus.MenuItem(
             name="LocalSend::SendCurrentDir",
-            label="Надіслати все через LocalSend",
+            label="Надіслати все з цієї теки через LocalSend",
             tip="Надіслати поточну директорію через LocalSend"
         )
         item.connect("activate", self._send_to_localsend, [file])
