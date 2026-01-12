@@ -13,9 +13,13 @@ Integration for sending files with **LocalSend** directly from the Nautilus cont
 ### 1. Install dependencies / Встановлення залежностей
 
 **Arch Linux / Manjaro:**
-```bash
-sudo pacman -S python-nautilus
-```
+```sudo pacman -S python-nautilus```
+
+**Ubuntu / Debian / Linux Mint:**
+```sudo apt install python3-nautilus```
+
+**Fedora:**
+```sudo dnf install nautilus-python```
 
 ### 2. Install the plugin / Встановлення плагіна
 
@@ -28,11 +32,10 @@ cp nautilus-localsend.py ~/.local/share/nautilus-python/extensions/
 nautilus -q
 ```
 
-#### 🚀 Usage / Використання
+---
 
-  1. Open Nautilus.
-  2. Right-click on any file or folder (or the background).
-  3.  Select "Надіслати через LocalSend".
-  4.  Відкрийте Nautilus.
-  5.  Натисніть правою кнопкою миші на файл, папку або пусте місце.
-  6.  Оберіть "Надіслати через LocalSend".
+### 🚀 Usage / Використання
+  
+  1. Open Nautilus. / Відкрийте Nautilus.
+  2. Right-click on any file or folder (or the background). / Натисніть правою кнопкою миші на файл, папку або пусте місце.
+  3.  Select "Надіслати через LocalSend". / Оберіть "Надіслати через LocalSend".
