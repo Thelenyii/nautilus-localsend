@@ -26,7 +26,7 @@ Integration for sending files with **LocalSend** directly from the Nautilus cont
 Run the following commands to install the extension for your user:
 ```bash
 mkdir -p ~/.local/share/nautilus-python/extensions/
-git clone [https://github.com/Thelenyii/nautilus-localsend.git](https://github.com/Thelenyii/nautilus-localsend.git)
+git clone [https://github.com/raitxrc/nautilus-localsend.git](https://github.com/raitxrc/nautilus-localsend.git)
 cd nautilus-localsend
 cp nautilus-localsend.py ~/.local/share/nautilus-python/extensions/
 nautilus -q
